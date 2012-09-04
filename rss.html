@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>RSS Parser</title>
+		<script type="text/javascript" src="jquery.js"></script>
+	</head>
+	<body>
+		
+		<div class="content">
+		</div>
+		
+		<script>
+		
+		function LoadRSS(url)
+		{
+			$.getJSON("http://query.yahooapis.com/v1/public/yql?q=select * from html where url='" + url + "'&format=xml&callback=?",
+				function(data) {
+					if (data.results[0])
+					{
+						var rs = data.results[0];
+						console.log($(rs).children);
+					}
+				}
+			);
+		}
+		
+		$(function(){
+			LoadRSS("http://vietnamnet.vn/rss/home.rss");
+		});
+		
+		</script>
+	
+	</body> 
+</html>
