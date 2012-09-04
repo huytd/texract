@@ -1,5 +1,4 @@
 textract
-
 ===
 
 Tool to extract main content from other URL
